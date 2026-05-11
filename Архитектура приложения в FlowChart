@@ -1,0 +1,89 @@
+flowchart TD
+    User(("Пользователь"))
+    
+    subgraph GUI ["Графический интерфейс main.py"]
+        Entry["Поле ввода параметра поиска"]
+        Radio["Радиокнопки: Видео / Веб-камера"]
+        Slider["Слайдер пропуска кадров"]
+        Switch["Переключатель предобработки"]
+        StartBtn["Кнопка СТАРТ!!!"]
+        PauseResume["Кнопки ПАУЗА / ПРОДОЛЖИТЬ"]
+        Listbox["CTkListbox - список найденных кодов"]
+        Label["CTkLabel - результат поиска"]
+    end
+    
+    subgraph Thread ["Поток обработки run_processing"]
+        ReadParams["Чтение параметров из GUI"]
+        Branch{"Режим?"}
+    end
+    
+    subgraph VideoMode ["Режим видео"]
+        RealtimeScan["realtime_scanning"]
+        VideoCapture["cv2.VideoCapture - чтение кадров"]
+        FrameLoop1["Цикл по кадрам"]
+    end
+    
+    subgraph CameraMode ["Режим веб-камеры"]
+        CameraScan["camera_scanning"]
+        VideoStream["VideoStream src=0 - захват кадров"]
+        FrameLoop2["Цикл по кадрам"]
+    end
+    
+    subgraph Recognition ["Распознавание"]
+        QReader["QReader.detect_and_decode"]
+        YOLO["YOLOv8 - нейросетевой детектор"]
+        Pyzbar["Pyzbar - декодирование"]
+        BboxShow["bbox_show - отрисовка рамки"]
+    end
+    
+    Filter{"Содержимое равно valid_text?"}
+    
+    subgraph Display ["Отображение"]
+        ImShow["cv2.imshow - видео с рамками"]
+        PauseDisplay["Отображение надписи PAUSE"]
+    end
+    
+    subgraph ThreadControl ["Управление потоком"]
+        StopEvent["stop_event"]
+        PauseEvent["pause_event"]
+        TogglePause["toggle_pause"]
+        SetStop["set_stop"]
+    end
+    
+    subgraph Return ["Возврат в главный поток"]
+        UpdateListbox["update_listbox - заполнение списка"]
+        UpdateLabel["Обновление лейбла"]
+        ResetButtons["Сброс кнопок"]
+    end
+    
+    User -->|"ввод параметров, команды"| GUI
+    GUI -->|"запуск потока, параметры"| Thread
+    Thread --> ReadParams --> Branch
+    
+    Branch -->|"radio_value = 0"| RealtimeScan
+    RealtimeScan --> VideoCapture --> FrameLoop1
+    FrameLoop1 -->|"кадр"| QReader
+    
+    Branch -->|"radio_value = 1"| CameraScan
+    CameraScan --> VideoStream --> FrameLoop2
+    FrameLoop2 -->|"кадр"| QReader
+    
+    QReader --> YOLO --> Pyzbar --> BboxShow
+    BboxShow --> Filter
+    
+    Filter -->|"ДА"| GreenBox["Зелёная рамка - добавление в SearchQRcode"]
+    Filter -->|"НЕТ"| RedBox["Красная рамка - игнорирование"]
+    
+    GreenBox --> ImShow
+    RedBox --> ImShow
+    
+    PauseEvent -->|"pause_event.is_set()"| PauseDisplay
+    PauseDisplay -->|"проверка"| ImShow
+    
+    ImShow -->|"клавиша q / закрытие окна / конец видео"| UpdateListbox
+    UpdateListbox --> UpdateLabel --> ResetButtons
+    ResetButtons -->|"результаты"| GUI
+    
+    ThreadControl -.->|"проверка в цикле"| FrameLoop1
+    ThreadControl -.->|"проверка в цикле"| FrameLoop2
+    GUI -.->|"команды паузы/остановки"| ThreadControl
