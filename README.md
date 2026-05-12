@@ -99,9 +99,6 @@ ScanURQR/
 ### 📊 Краткая схема архитектуры
 ![Краткая схема](diagram%28%D1%81%D1%85%D0%B5%D0%BC%D1%8B%29/%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%28%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%B0%D1%8F%20%D1%81%D1%85%D0%B5%D0%BC%D0%B0%29.png)
 
-### 🔍 Полная схема
-![Полная схема](diagram(схемы)/Архитектура%20(полная%20схема).png)
-
 ### 📚 Документация
 + 🇷 [RUS](ScanURQR-s/DOCUMENTATION/RUS)
 + 🇬🇧 [ENG](ScanURQR-s/DOCUMENTATION/ENG)
@@ -193,9 +190,6 @@ The application follows a modular design with separation of concerns:
 
 ### 📊 Brief Architecture Diagram
 ![Short](diagram%28%D1%81%D1%85%D0%B5%D0%BC%D1%8B%29/%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%28%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%B0%D1%8F%20%D1%81%D1%85%D0%B5%D0%BC%D0%B0%29.png)
-
-### 🔍 Full Architecture Diagram
-![Wide](diagram%28%D1%81%D1%85%D0%B5%D0%BC%D1%8B%29/%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%28%D0%BF%D0%BE%D0%BB%D0%BD%D0%B0%D1%8F%20%D1%81%D1%85%D0%B5%D0%BC%D0%B0%29.png)
 
 ### 📚 Documentation
 + 🇷 [RUS](ScanURQR-s/DOCUMENTATION/RUS)
