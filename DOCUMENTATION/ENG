@@ -1,0 +1,71 @@
+Description
+Application for scanning and detecting QR codes from video files and webcam in real-time.
+
+Features
+•	🔍 QR code scanning from video files (MP4, AVI, MOV, MKV, FLV)
+•	📹 Real-time webcam scanning
+•	⏸️ Pause and resume playback
+•	⚙️ Video preprocessing for improved detection
+•	🎯 Search for specific QR code content
+•	📊 Display of all detected QR codes
+
+Installation and Launch
+Option 1: Ready-to-use .exe file (Windows only)
+1.	Download the dist folder from GitHub (link on exe file and last packages (for folder “build\ScanURQR!”) - https://disk.yandex.ru/d/csX_oRjkWGCx6Q  )
+2.	Make sure ScanURQR.exe, libiconv.dll, and libzbar-64.dll are in the same folder
+3.	Run ScanURQR.exe
+Note: A console window may appear on first launch - this is normal.
+Option 2: Run via Python
+1.	Install Python 3.10 or higher
+2.	Install dependencies:
+pip install -r requirements.txt
+3.	Run the application:
+python main.py
+
+Usage Instructions
+1. Launch the Application
+Open the application - Enter search parameter (optional)
+2. Select Operating Mode
+Video Mode:
+1.	Click "Выбрать видео" (Select Video) button
+2.	Choose a video file on your computer
+3.	Click "СТАРТ!!!" (START!!!)
+Webcam Mode:
+1.	Select the "Веб-камера" (Webcam) radio button
+2.	Click "СТАРТ!!!" (START!!!)
+3. Playback Controls
+•	СТАРТ!!! - start video processing
+•	ПАУЗА - pause processing (video stops but doesn't close)
+•	ПРОДОЛЖИТЬ - resume processing from the pause point
+4. Settings
+Video Preprocessing:
+•	Enable the toggle for improved detection on complex videos
+•	Applies filters (grayscale, blur, thresholding)
+Frame Skip:
+•	Use the slider to adjust frame checking frequency
+•	Value 2 = check every 2nd frame (faster)
+•	Value 10 = check every 10th frame (slower, but more accurate)
+5. Results
+All detected QR codes are displayed in the list at the bottom
+If a search parameter is specified, the application will show "Найден!!!" (Found!!!) or "Не найден!!!" (Not found!!!)
+6. Exit
+•	Press "q" on the video window to stop
+•	Or close the video window with the X button
+•	The application will return to the main window
+
+Requirements
+•	OS: Windows 10/11
+•	Python: 3.10+
+•	RAM: minimum 4 GB
+•	Camera: for webcam mode
+
+Troubleshooting
+1.	Video doesn't display in .exe version:
+Make sure DLL files (libiconv.dll, libzbar-64.dll) are located next to the .exe
+2.	QR codes are not detected:
+•	Enable "Video Preprocessing"
+•	Decrease the "Frame Skip" value
+•	Make sure the QR code is well-lit and in focus
+3.	Application runs slowly:
+•	Increase the "Frame Skip" value
+•	Disable video preprocessing
