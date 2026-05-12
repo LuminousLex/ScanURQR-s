@@ -100,7 +100,7 @@ ScanURQR/
 ![Краткая схема](diagram%28%D1%81%D1%85%D0%B5%D0%BC%D1%8B%29/%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%28%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%B0%D1%8F%20%D1%81%D1%85%D0%B5%D0%BC%D0%B0%29.png)
 
 ### 🔍 Полная схема
-![WIde](ScanURQR-s/diagram(схемы)/Архитектура (полная схема).png)
+![Полная схема](diagram%28%D1%81%D1%85%D0%B5%D0%BC%D1%8B%29/%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%28%D0%BF%D0%BE%D0%BB%D0%BD%D0%B0%D1%8F%20%D1%81%D1%85%D0%B5%D0%BC%D0%B0%29.png)
 
 ### 📚 Документация
 + 🇷 [RUS](ScanURQR-s/DOCUMENTATION/RUS)
@@ -192,10 +192,10 @@ The application follows a modular design with separation of concerns:
 3. **Multithreading** — separate thread for video processing
 
 ### 📊 Brief Architecture Diagram
-![Short](ScanURQR-s/diagram(схемы)/Архитектура (краткая схема).png)
+![Short](diagram%28%D1%81%D1%85%D0%B5%D0%BC%D1%8B%29/%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%28%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%B0%D1%8F%20%D1%81%D1%85%D0%B5%D0%BC%D0%B0%29.png)
 
 ### 🔍 Full Architecture Diagram
-![Wide](ScanURQR-s/diagram(схемы)/Архитектура (полная схема).png)
+![Wide](diagram%28%D1%81%D1%85%D0%B5%D0%BC%D1%8B%29/%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%28%D0%BF%D0%BE%D0%BB%D0%BD%D0%B0%D1%8F%20%D1%81%D1%85%D0%B5%D0%BC%D0%B0%29.png)
 
 ### 📚 Documentation
 + 🇷 [RUS](ScanURQR-s/DOCUMENTATION/RUS)
